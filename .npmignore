@@ -1,9 +1,10 @@
-/node_modules
 /build
-/lib
-*.swp
+/spec
+*.coffee
 *.log
 *~
+*.swp
 .DS_Store
 .node-version
+.npmignore
 npm-debug.log
