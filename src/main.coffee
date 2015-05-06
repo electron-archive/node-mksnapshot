@@ -1,3 +1,4 @@
+callMksnapshot = require './mksnapshot-call'
 getPathOfMksnapshot = require './mksnapshot-path'
 
 # xx.yy.zz => xx.yy.0
@@ -10,6 +11,7 @@ stripVersion = (version) ->
 mksnapshot = (content, target, version, arch, builddir, callback) ->
   version = stripVersion version
   getPathOfMksnapshot version, arch, builddir, (error, mksnapshot) ->
-    callback(error)
+    return callback error if error
+    callMksnapshot mksnapshot, content, target, builddir, callback
 
 module.exports = mksnapshot

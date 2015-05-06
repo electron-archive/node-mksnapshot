@@ -1,5 +1,4 @@
-fs      = require 'fs'
-mkdirp  = require 'mkdirp'
+fs      = require 'fs-extra'
 path    = require 'path'
 request = require 'request'
 
@@ -25,7 +24,7 @@ unzipFile = (zipPath, callback) ->
   unzipper.extract path: path.dirname(zipPath)
 
 getPathOfMksnapshot = (version, arch, builddir, callback) ->
-  mksnapshot = path.join builddir, 'mksnapshot'
+  mksnapshot = path.resolve builddir, 'mksnapshot'
   mksnapshot+= '.exe' if process.platform is 'win32'
 
   versionFile = path.join builddir, '.mksnapshot_version'
@@ -33,7 +32,7 @@ getPathOfMksnapshot = (version, arch, builddir, callback) ->
     if not error and String(currentVersion).trim() is version
       return callback null, mksnapshot
 
-    mkdirp builddir, (error) ->
+    fs.mkdirp builddir, (error) ->
       return callback error if error
 
       filename = "mksnapshot-v#{version}-#{process.platform}-#{arch}.zip"
