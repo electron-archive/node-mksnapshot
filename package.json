@@ -6,15 +6,15 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/atom/node-mksnapshot/raw/master/LICENSE.md"
+      "url": "http://github.com/electron/node-mksnapshot/raw/master/LICENSE.md"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/node-mksnapshot.git"
+    "url": "https://github.com/electron/node-mksnapshot.git"
   },
   "bugs": {
-    "url": "https://github.com/atom/node-mksnapshot/issues"
+    "url": "https://github.com/electron/node-mksnapshot/issues"
   },
   "scripts": {
     "prepublish": "grunt coffee"
