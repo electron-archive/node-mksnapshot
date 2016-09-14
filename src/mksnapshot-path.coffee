@@ -2,7 +2,7 @@ fs      = require 'fs-extra'
 path    = require 'path'
 request = require 'request'
 
-REPO_URL = 'https://github.com/atom/electron'
+REPO_URL = 'https://github.com/electron/electron'
 
 downloadFileToLocation = (url, filename, callback) ->
   stream = fs.createWriteStream filename
